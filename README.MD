@@ -37,10 +37,11 @@ npm i seneca seneca-web seneca-redis-transport-fork
 ### Host
 
 ```js
-const to_hostname = require('os').hostname()
+const os = require('os')
 const Express = require('express')
 const Seneca = require('seneca')
 const SenecaWeb = require('seneca-web')
+const SenecaWebAdapterExpress = require('seneca-web-adapter-express')
 const {WebHost} = require('seneca-web-helper')
 const SenecaRedisTransport = require('seneca-redis-transport-fork')
 
@@ -52,7 +53,7 @@ Seneca({ tag: 'api-gateway' })
   .use(SenecaRedisTransport)
 
   .use(SenecaWeb, {
-    adapter: 'express',
+    adapter: SenecaWebAdapterExpress,
     options: {parseBody: false},
     context: new Express.Router(),
     routes: []
@@ -65,7 +66,7 @@ Seneca({ tag: 'api-gateway' })
 
   .ready(function () {
 
-      this.act('role:web,register:all', {to_hostname}) // this is the magic
+      this.act('role:web,register:all', {to_hostname: os.hostname()}) // this is the magic
 
       app.use('/api', this.export('web/context')())
 
@@ -98,7 +99,7 @@ Seneca({tag: 'microservice-1'})
   .add('role:test,cmd:foo', (args, cb) => cb(null, {ok: true}))
 
   .ready(function () {
-    this.act('role:web,register:unique-name') // this is the magic
+    this.act('role:web', {register: this.options().tag}) // this is the magic
     this.log.info('microservice ready!')
   })
 ```
