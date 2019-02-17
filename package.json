@@ -1,0 +1,47 @@
+{
+  "name": "seneca-web-helper",
+  "version": "0.0.0",
+  "description": "Two useful plugins for using seneca-web in a distributed manner.",
+  "main": "index.js",
+  "scripts": {
+    "coveralls": "nyc --reporter=text-lcov npm test | coveralls",
+    "coverage": "nyc --reporter=html --report-dir=docs/coverage npm test",
+    "test": "mocha",
+    "prettier": "prettier --write --no-semi --single-quote index.js lib/*.js test/*.js"
+  },
+  "author": "Tyler Waters <tyler.waters@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "seneca",
+    "wen",
+    "plugin",
+    "helper",
+    "distributed",
+    "pub-sub",
+    "publish",
+    "subscribe"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tswaters/seneca-web-helper.git"
+  },
+  "devDependencies": {
+    "coveralls": "^3.0.2",
+    "express": "^4.16.4",
+    "mocha": "^5.2.0",
+    "nyc": "^13.3.0",
+    "prettier": "^1.16.4",
+    "seneca": "^3.8.2",
+    "seneca-redis-transport-fork": "^1.0.2",
+    "seneca-web": "^2.2.1",
+    "seneca-web-adapter-express": "^1.1.2",
+    "sinon": "^7.2.3",
+    "supertest": "^3.4.2"
+  },
+  "files": [
+    "README.MD",
+    "LICENSE",
+    "lib",
+    "index.js"
+  ]
+}
