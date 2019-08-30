@@ -1,6 +1,6 @@
 {
   "name": "seneca-web-helper",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Two useful plugins for using seneca-web in a distributed manner.",
   "main": "index.js",
   "scripts": {
