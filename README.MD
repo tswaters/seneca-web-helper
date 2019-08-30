@@ -27,6 +27,8 @@ Supports Seneca versions **1.x** - **3.x**
 
 * hostname defaults to the OS's hostname and is used to ensure targetted population of routes for each host under a given hostname - if this is the same for multiple hosts, you'll end up with a lot of noise.
 
+* if a microservice comes online with new routes and all hosts are already aware of it, the new routes will not be mounted.  You'll need to call into `role:web,clear:all` to get all hosts to clear their cache and repopulate routes.
+
 ## Install
 To install, simply use npm. You'll need to install seneca, seneca-web, and seneca-redis-transport-fork if you haven't already.
 

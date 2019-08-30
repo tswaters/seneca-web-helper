@@ -205,8 +205,10 @@ describe('integration tests', () => {
     })
 
     it('should work properly', async () => {
-      host.act('role:web,clear:all')
-      await new Promise(resolve => setTimeout(() => resolve(), 100))
+      await new Promise((resolve, reject) =>
+        host.act('role:web,clear:all', err => (err ? reject(err) : resolve()))
+      )
+
       await supertest(server)
         .get('/api/foo')
         .expect(200)

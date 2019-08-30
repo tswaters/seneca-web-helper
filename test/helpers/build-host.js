@@ -1,11 +1,12 @@
+'use strict'
 
 const http = require('http')
 const Express = require('express')
 const Seneca = require('seneca')
 const SenecaWeb = require('seneca-web')
 const SenecaWebAdapterExpress = require('seneca-web-adapter-express')
-const { WebHost } = require('../..')
 const SenecaRedisTransport = require('seneca-redis-transport-fork')
+const { WebHost } = require('../..')
 
 module.exports = async function build_host({port, tag, hostname}) {
   let server = null
@@ -20,6 +21,7 @@ module.exports = async function build_host({port, tag, hostname}) {
       context: new Express.Router(),
       routes: []
     })
+
     // provide point->point for web requests
     .client({type: 'tcp', pins: ['role:test,cmd:*']})
 

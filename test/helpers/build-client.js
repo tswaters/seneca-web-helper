@@ -1,13 +1,14 @@
+'use strict'
 
 const Seneca = require('seneca')
-const { WebClient } = require('../../')
 const SenecaRedisTransport = require('seneca-redis-transport-fork')
+const { WebClient } = require('../../')
 
 module.exports = async function build_client({port, tag, hostname}) {
   const si = Seneca({ log: 'silent', tag })
     .use(SenecaRedisTransport)
     .use(WebClient, {
-      hostname: hostname,
+      hostname,
       routes: [
         {pin: 'role:test,cmd:*', map: {foo: true}
       }]

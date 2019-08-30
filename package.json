@@ -26,17 +26,17 @@
     "url": "git://github.com/tswaters/seneca-web-helper.git"
   },
   "devDependencies": {
-    "coveralls": "^3.0.2",
-    "express": "^4.16.4",
-    "mocha": "^5.2.0",
-    "nyc": "^13.3.0",
-    "prettier": "^1.16.4",
-    "seneca": "^3.8.2",
+    "coveralls": "^3.0.6",
+    "express": "^4.17.1",
+    "mocha": "^6.2.0",
+    "nyc": "^14.1.1",
+    "prettier": "^1.18.2",
+    "seneca": "^3.13.3",
     "seneca-redis-transport-fork": "^1.0.2",
     "seneca-web": "^2.2.1",
     "seneca-web-adapter-express": "^1.1.2",
-    "sinon": "^7.2.3",
-    "supertest": "^3.4.2"
+    "sinon": "^7.4.1",
+    "supertest": "^4.0.2"
   },
   "files": [
     "README.MD",
